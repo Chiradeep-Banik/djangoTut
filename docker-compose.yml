@@ -1,7 +1,21 @@
 services:
   frontend:
-    build: .
+    build:
+      context: frontend
+      dockerfile: Dockerfile
     volumes:
-      - ".:/app"
+      - "./frontend:/app"
     ports:
-      - "1313:1313"
+      - "4000:4000"
+    command: [ "npm", "run", "dev" ]
+    depends_on:
+      - backend
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    volumes:
+      - "./backend:/app"
+    ports:
+      - "3000:3000"
+    command: [ "python", "manage.py", "runserver", "4000" ]
