@@ -1,0 +1,8 @@
+services:
+  backend:
+    build: .
+    volumes:
+      - ".:/app"
+    ports:
+      - "8000:8000"
+    command: python /app/manage.py runserver

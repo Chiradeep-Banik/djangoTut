@@ -2,15 +2,10 @@ FROM node:alpine
 
 RUN mkdir /app
 
-WORKDIR /app
+COPY . /app
 
-COPY . .
-# COPY package.json .
+RUN ls
 
 RUN npm install
-
-# COPY . .
-
-EXPOSE 3000
 
 

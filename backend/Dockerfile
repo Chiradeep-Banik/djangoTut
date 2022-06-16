@@ -10,10 +10,4 @@ RUN pip install django
 
 RUN mkdir /app
 
-WORKDIR /app
-
-COPY . .
-
-EXPOSE 4000
-
-
+COPY . /app
